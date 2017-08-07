@@ -96,3 +96,21 @@ public extension String {
         return from..<to
     }
 }
+
+extension String {
+    static func * (lhs: String, rhs: Int) -> String {
+        return (0..<rhs).map { _ in lhs }.joined()
+    }
+    
+    static func toReadable(_ obj: Any?, indent: Int = 0) -> String {
+        guard let obj = obj else { return "" }
+        
+        if let obj = obj as? [AnyHashable: Any] {
+            return "\(indent > 0 ? "\n" : "")\("  " * indent){\n\(obj.map { "\("  " * (indent + 1))\(String.toReadable($0.key, indent: indent + 1)): \(String.toReadable($0.value, indent: indent + 1))" }.joined(separator: ",\n"))\n\("  " * indent)}"
+        } else if let obj = obj as? [Any] {
+            return "[\n\(obj.map { ("  " * (indent + 1)) + String.toReadable($0, indent: indent + 1)}.joined(separator: ",\n"))\n\("  " * indent)]"
+        } else {
+            return "\(obj)"
+        }
+    }
+}

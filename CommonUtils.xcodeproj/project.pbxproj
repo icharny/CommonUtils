@@ -34,6 +34,7 @@
 		F68CABE61F34C165006CD223 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABE51F34C165006CD223 /* DateFormatter.swift */; };
 		F68CABE91F34C6EF006CD223 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68CABE81F34C6EF006CD223 /* Foundation.framework */; };
 		F68CABEB1F34C6F5006CD223 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68CABEA1F34C6F5006CD223 /* UIKit.framework */; };
+		F6D00C171F38BA4F00480FCC /* TwoWayDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		F68CABE51F34C165006CD223 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F68CABE81F34C6EF006CD223 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F68CABEA1F34C6F5006CD223 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoWayDictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				F68CABB71F34BAE7006CD223 /* UIViewControllerExtensions.swift */,
 				F68CABB81F34BAE7006CD223 /* UIViewExtensions.swift */,
 				F68CABB91F34BAE7006CD223 /* UIViewStyle.swift */,
+				F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */,
 			);
 			path = CommonUtils;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				F68CABE11F34C12B006CD223 /* TableViewSectionFooter.swift in Sources */,
 				F68CABC71F34BAE7006CD223 /* UICollectionReusableViewExtensions.swift in Sources */,
 				F68CABBD1F34BAE7006CD223 /* DispatchQueueExtensions.swift in Sources */,
+				F6D00C171F38BA4F00480FCC /* TwoWayDictionary.swift in Sources */,
 				F68CABCF1F34BAE7006CD223 /* UITableViewExtensions.swift in Sources */,
 				F68CABBA1F34BAE7006CD223 /* ArrayExtensions.swift in Sources */,
 				F68CABC11F34BAE7006CD223 /* OrderedDictionary.swift in Sources */,
