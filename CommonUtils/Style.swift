@@ -1,5 +1,5 @@
-public class UIStyle: UIView {
-    override public func draw(_ rect: CGRect) {
+open class UIStyle: UIView {
+    override open func draw(_ rect: CGRect) {
         isHidden = true
     }
     
