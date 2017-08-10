@@ -1,3 +1,5 @@
+infix operator =~
+
 public extension String {
     init(fromData data: Data?) {
         if let data = data {
@@ -95,9 +97,25 @@ public extension String {
         
         return from..<to
     }
+    
+    func preferredWidth(forFont font: UIFont) -> CGFloat {
+        return self.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
+                                 options: .usesLineFragmentOrigin,
+                                 attributes: [NSFontAttributeName: font],
+                                 context: nil)
+            .width
+    }
 }
 
-extension String {
+public extension String {
+    static func =~ (testString: String, regExString: String) -> Bool {
+        if let regEx = try? NSRegularExpression(pattern: regExString, options: []) {
+            return regEx.matches(in: testString, options: [], range: NSRange(location: 0, length: testString.characters.count)).count > 0
+        } else {
+            return false
+        }
+    }
+    
     static func * (lhs: String, rhs: Int) -> String {
         return (0..<rhs).map { _ in lhs }.joined()
     }
