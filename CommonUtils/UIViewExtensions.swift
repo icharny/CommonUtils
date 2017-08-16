@@ -83,6 +83,15 @@ public extension UIView {
         }
     }
     
+    @IBInspectable var masksToBounds: Bool {
+        get {
+            return layer.masksToBounds
+        }
+        set {
+            layer.masksToBounds = newValue
+        }
+    }
+    
     private static let innerShadowViewTag = 4663774
     
     func removeInnerShadow() {
