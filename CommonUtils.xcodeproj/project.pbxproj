@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6808F861F4FB31A009527D4 /* RawRepresentableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6808F851F4FB31A009527D4 /* RawRepresentableExtensions.swift */; };
 		F68CAB9B1F34BA68006CD223 /* CommonUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = F68CAB991F34BA68006CD223 /* CommonUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F68CABBA1F34BAE7006CD223 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABA11F34BAE7006CD223 /* ArrayExtensions.swift */; };
 		F68CABBC1F34BAE7006CD223 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABA31F34BAE7006CD223 /* DictionaryExtensions.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F6808F851F4FB31A009527D4 /* RawRepresentableExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableExtensions.swift; sourceTree = "<group>"; };
 		F68CAB961F34BA67006CD223 /* CommonUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F68CAB991F34BA68006CD223 /* CommonUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		F68CAB9A1F34BA68006CD223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,10 +115,12 @@
 				F68CABA71F34BAE7006CD223 /* OptionalExtensions.swift */,
 				F68CABA81F34BAE7006CD223 /* OrderedDictionary.swift */,
 				F68CABA91F34BAE7006CD223 /* PassThroughView.swift */,
+				F6808F851F4FB31A009527D4 /* RawRepresentableExtensions.swift */,
 				F68CABAC1F34BAE7006CD223 /* StringExtensions.swift */,
 				F68CABAD1F34BAE7006CD223 /* Style.swift */,
 				F68CABD81F34C12B006CD223 /* TableViewSectionFooter.swift */,
 				F68CABD91F34C12B006CD223 /* TableViewSectionHeader.swift */,
+				F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */,
 				F68CABAE1F34BAE7006CD223 /* UICollectionReusableViewExtensions.swift */,
 				F68CABAF1F34BAE7006CD223 /* UICollectionViewCellExtensions.swift */,
 				F68CABB01F34BAE7006CD223 /* UICollectionViewExtensions.swift */,
@@ -129,7 +133,6 @@
 				F68CABB71F34BAE7006CD223 /* UIViewControllerExtensions.swift */,
 				F68CABB81F34BAE7006CD223 /* UIViewExtensions.swift */,
 				F68CABB91F34BAE7006CD223 /* UIViewStyle.swift */,
-				F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */,
 			);
 			path = CommonUtils;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				F68CABD01F34BAE7006CD223 /* UIViewControllerExtensions.swift in Sources */,
 				F68CABBC1F34BAE7006CD223 /* DictionaryExtensions.swift in Sources */,
 				F68CABCD1F34BAE7006CD223 /* UIStoryboardExtensions.swift in Sources */,
+				F6808F861F4FB31A009527D4 /* RawRepresentableExtensions.swift in Sources */,
 				F68CABC81F34BAE7006CD223 /* UICollectionViewCellExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
