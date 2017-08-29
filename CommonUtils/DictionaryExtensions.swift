@@ -11,7 +11,7 @@ public extension Dictionary {
         return newDict
     }
     
-    func append(newDict: [Key: Value]) -> [Key: Value] {
+    func appending(newDict: [Key: Value]) -> [Key: Value] {
         var combinedDict = self
         newDict.forEach { (k, v) in
             combinedDict[k] = v
