@@ -12,12 +12,4 @@ public extension Optional {
             elseClosure()
         }
     }
-    
-    func then<T>(_ map: (Wrapped) -> T, else elseValue: T?) -> T? {
-        if let unwrapped = self {
-            return map(unwrapped)
-        } else {
-            return elseValue
-        }
-    }
 }
