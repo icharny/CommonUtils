@@ -1,5 +1,5 @@
 public class NoDelayTableView: UITableView {
-    required public init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
         delaysContentTouches = false
@@ -9,7 +9,7 @@ public class NoDelayTableView: UITableView {
         subviews.forEach { ($0 as? UIScrollView)?.delaysContentTouches = false }
     }
     
-    override public func touchesShouldCancel(in view: UIView) -> Bool {
+    public override func touchesShouldCancel(in view: UIView) -> Bool {
         // So that if you tap and drag, it cancels the tap.
         return true
     }

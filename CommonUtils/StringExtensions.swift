@@ -93,16 +93,16 @@ public extension String {
             let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
             let from = String.Index(from16, within: self),
             let to = String.Index(to16, within: self)
-            else { return nil }
+        else { return nil }
         
         return from..<to
     }
     
     func preferredWidth(forFont font: UIFont) -> CGFloat {
         return self.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
-                                 options: .usesLineFragmentOrigin,
-                                 attributes: [NSFontAttributeName: font],
-                                 context: nil)
+                            options: .usesLineFragmentOrigin,
+                            attributes: [NSFontAttributeName: font],
+                            context: nil)
             .width
     }
 }
@@ -126,7 +126,7 @@ public extension String {
         if let obj = obj as? [AnyHashable: Any] {
             return "\(indent > 0 ? "\n" : "")\("  " * indent){\n\(obj.map { "\("  " * (indent + 1))\(String.toReadable($0.key, indent: indent + 1)): \(String.toReadable($0.value, indent: indent + 1))" }.joined(separator: ",\n"))\n\("  " * indent)}"
         } else if let obj = obj as? [Any] {
-            return "[\n\(obj.map { ("  " * (indent + 1)) + String.toReadable($0, indent: indent + 1)}.joined(separator: ",\n"))\n\("  " * indent)]"
+            return "[\n\(obj.map { ("  " * (indent + 1)) + String.toReadable($0, indent: indent + 1) }.joined(separator: ",\n"))\n\("  " * indent)]"
         } else {
             return "\(obj)"
         }

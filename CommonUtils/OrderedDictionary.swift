@@ -12,7 +12,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     }
     
     // Explicitly define an empty initializer to prevent the default memberwise initializer from being generated
-    public init() { }
+    public init() {}
     
     public init(dictionaryLiteral: (Tk, Tv)...) {
         keys = dictionaryLiteral.map { $0.0 }
@@ -86,7 +86,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     }
     
     public mutating func remove(value: Tv) {
-        for i in (0..<count) {
+        for i in 0..<count {
             let key = keys[i]
             if values[key]! == value {
                 values.removeValue(forKey: key)
@@ -97,7 +97,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     }
     
     public mutating func remove(key: Tk) {
-        for i in (0..<count) {
+        for i in 0..<count {
             let testKey = keys[i]
             if testKey == key {
                 values.removeValue(forKey: key)
@@ -142,7 +142,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     }
 }
 
-public struct OrderedDictionaryGenerator<Tv> : IteratorProtocol {
+public struct OrderedDictionaryGenerator<Tv>: IteratorProtocol {
     fileprivate var nextIndex: Int
     fileprivate var values: [Tv]?
     

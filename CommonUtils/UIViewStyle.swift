@@ -33,7 +33,7 @@ public struct UIViewStyle<T: UIView> {
     /// - Parameter otherStyling: The function to compose this style with.
     /// - Returns: A new `UIViewStyle` which will call this style's `styling`,
     ///            and then the input `styling`.
-    public func composing(with otherStyling: @escaping (T) -> Void)-> UIViewStyle<T> {
+    public func composing(with otherStyling: @escaping (T) -> Void) -> UIViewStyle<T> {
         return composing(with: UIViewStyle(styling: otherStyling))
     }
     

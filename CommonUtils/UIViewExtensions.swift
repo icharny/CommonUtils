@@ -5,10 +5,10 @@ public struct InnerShadowDirection: OptionSet {
     
     public let rawValue: Int
     
-    public static let north  = InnerShadowDirection(rawValue: 1 << 0)
+    public static let north = InnerShadowDirection(rawValue: 1 << 0)
     public static let east = InnerShadowDirection(rawValue: 1 << 1)
-    public static let south  = InnerShadowDirection(rawValue: 1 << 2)
-    public static let west  = InnerShadowDirection(rawValue: 1 << 3)
+    public static let south = InnerShadowDirection(rawValue: 1 << 2)
+    public static let west = InnerShadowDirection(rawValue: 1 << 3)
 }
 
 public extension UIView {

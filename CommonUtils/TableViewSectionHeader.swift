@@ -6,7 +6,7 @@ open class TableViewSectionHeader: UIView {
     /* example:
     public enum Header: String {
         case `default`
-        
+     
         fileprivate var filename: String {
             return "\(String(rawValue.characters.prefix(1)).capitalized)\(String(rawValue.characters.dropFirst()))TableSectionHeaderView"
         }

@@ -1,7 +1,7 @@
 public extension Dictionary {
     func deepMap<nK: Hashable, nV>(keyMap: ((Key) -> nK)? = nil, valueMap: ((Value) -> nV)? = nil) -> [nK: nV] {
         var newDict = [nK: nV]()
-        forEach { (k, v) in
+        forEach { k, v in
             let newKey: nK = keyMap?(k) ?? (k as! nK)
             let newValue: nV = valueMap?(v) ?? (v as! nV)
             
@@ -13,7 +13,7 @@ public extension Dictionary {
     
     func appending(newDict: [Key: Value]) -> [Key: Value] {
         var combinedDict = self
-        newDict.forEach { (k, v) in
+        newDict.forEach { k, v in
             combinedDict[k] = v
         }
         
@@ -23,7 +23,7 @@ public extension Dictionary {
     func filterToDictionary(includeElement: (Dictionary.Iterator.Element) throws -> Bool) rethrows -> [Key: Value] {
         var ret = [Key: Value]()
         if let tuples = try? filter(includeElement) {
-            tuples.forEach { (k, v) in
+            tuples.forEach { k, v in
                 ret[k] = v
             }
         }

@@ -5,7 +5,7 @@ public extension Array {
         default: return nil
         }
     }
-    
+
     func appending(_ newElement: Element) -> [Element] {
         var newArray = self
         newArray.append(newElement)

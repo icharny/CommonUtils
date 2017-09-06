@@ -1,6 +1,6 @@
 public extension UIViewController {
     class func instance() -> Self {
-        return instance(name: String(describing: self))
+        return self.instance(name: String(describing: self))
     }
     
     class func instance(name: String) -> Self {
