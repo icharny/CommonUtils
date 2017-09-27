@@ -12,7 +12,7 @@ public extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         
-        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
         
         return boundingBox.height
     }
@@ -30,19 +30,33 @@ public extension String {
     }
     
     func substring(to: Int) -> String {
-        return substring(to: index(startIndex, offsetBy: to))
+        switch to {
+        case 0...count:
+            return String(self[startIndex..<index(startIndex, offsetBy: to)])
+        default:
+            return self
+        }
     }
     
     func substring(from: Int) -> String {
-        return substring(from: index(startIndex, offsetBy: from))
+        switch from {
+        case 0...count:
+            return String(self[index(startIndex, offsetBy: from)..<endIndex])
+        default:
+            return ""
+        }
     }
     
     func substring(with range: Range<Int>) -> String {
-        let start = index(startIndex, offsetBy: range.lowerBound)
-        let end = index(endIndex, offsetBy: range.upperBound)
-        let indexRange = start..<end
-        
-        return substring(with: indexRange)
+        switch (range.lowerBound, range.upperBound) {
+        case (0...count, range.lowerBound...Int.max):
+            let start = index(startIndex, offsetBy: range.lowerBound)
+            let end = index(startIndex, offsetBy: min(range.upperBound, count))
+            
+            return String(self[start..<end])
+        default:
+            return ""
+        }
     }
     
     func capturedGroups(withRegex pattern: String) -> [String] {
@@ -63,7 +77,7 @@ public extension String {
         guard lastRangeIndex >= 1 else { return results }
         
         for i in 1...lastRangeIndex {
-            let capturedGroupIndex = match.rangeAt(i)
+            let capturedGroupIndex = match.range(at: i)
             let matchedString = (self as NSString).substring(with: capturedGroupIndex)
             results.append(matchedString)
         }
@@ -79,30 +93,11 @@ public extension String {
         return object == nil || ((object as? String)?.isEmpty ?? false)
     }
     
-    func nsRange(from range: Range<String.Index>) -> NSRange {
-        let from = range.lowerBound.samePosition(in: utf16)
-        let to = range.upperBound.samePosition(in: utf16)
-        
-        return NSRange(location: utf16.distance(from: utf16.startIndex, to: from),
-                       length: utf16.distance(from: from, to: to))
-    }
-    
-    func range(from nsRange: NSRange) -> Range<String.Index>? {
-        guard
-            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
-            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
-            let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self)
-        else { return nil }
-        
-        return from..<to
-    }
-    
     func preferredWidth(forFont font: UIFont) -> CGFloat {
         return self.boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
-                            options: .usesLineFragmentOrigin,
-                            attributes: [NSFontAttributeName: font],
-                            context: nil)
+                                 options: .usesLineFragmentOrigin,
+                                 attributes: [NSAttributedStringKey.font: font],
+                                 context: nil)
             .width
     }
 }

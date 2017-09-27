@@ -23,7 +23,9 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     
     public func indexOf(value: Tv) -> Int {
         let arr = values.filter { $1 == value }
-        if let index = keys.index(of: arr[0].0) {
+
+        if let firstPair = arr.first,
+            let index = keys.index(of: firstPair.key) {
             return index
         } else {
             return -1
