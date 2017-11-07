@@ -69,7 +69,7 @@ public extension String {
             return results
         }
         
-        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: characters.count))
+        let matches = regex.matches(in: self, options: [], range: NSRange(location: 0, length: count))
         
         guard let match = matches.first else { return results }
         
@@ -105,7 +105,7 @@ public extension String {
 public extension String {
     static func =~ (testString: String, regExString: String) -> Bool {
         if let regEx = try? NSRegularExpression(pattern: regExString, options: []) {
-            return regEx.matches(in: testString, options: [], range: NSRange(location: 0, length: testString.characters.count)).count > 0
+            return regEx.matches(in: testString, options: [], range: NSRange(location: 0, length: testString.count)).count > 0
         } else {
             return false
         }
@@ -114,7 +114,11 @@ public extension String {
     static func * (lhs: String, rhs: Int) -> String {
         return (0..<rhs).map { _ in lhs }.joined()
     }
-    
+
+    static func * (lhs: Int, rhs: String) -> String {
+        return rhs * lhs
+    }
+
     static func toReadable(_ obj: Any?, indent: Int = 0) -> String {
         guard let obj = obj else { return "" }
         
