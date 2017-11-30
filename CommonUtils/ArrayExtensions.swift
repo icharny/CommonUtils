@@ -1,7 +1,7 @@
 public extension Array {
     func tryGet(_ index: Int) -> Element? {
         switch index {
-        case 0..<count: return self[index]
+        case 0 ..< count: return self[index]
         default: return nil
         }
     }

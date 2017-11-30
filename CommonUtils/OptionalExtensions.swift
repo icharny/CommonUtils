@@ -4,7 +4,7 @@ public extension Optional {
             closure(unwrapped)
         }
     }
-    
+
     func then(_ thenClosure: (Wrapped) -> Void, else elseClosure: () -> Void) {
         if let unwrapped = self {
             thenClosure(unwrapped)

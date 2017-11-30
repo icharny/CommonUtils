@@ -11,32 +11,17 @@ Pod::Spec.new do |s|
   s.version          = '0.1.0'
   s.summary          = 'Common utilities when developing iOS/Swift apps.'
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
   s.description      = <<-DESC
 This is a collection of utilities and extensions that make developing iOS/Swift apps easier.
                        DESC
 
   s.homepage         = 'https://github.com/icharny/CommonUtils'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'icharny' => 'isaac.charny@gmail.com' }
   s.source           = { :git => 'https://github.com/icharny/CommonUtils.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'CommonUtils/**/*'
-  
-  # s.resource_bundles = {
-  #   'CommonUtils' => ['CommonUtils/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.source_files = 'CommonUtils/**/*.swift'
+  s.frameworks = 'UIKit'
 end

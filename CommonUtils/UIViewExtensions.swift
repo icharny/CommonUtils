@@ -2,9 +2,9 @@ public struct InnerShadowDirection: OptionSet {
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
-    
+
     public let rawValue: Int
-    
+
     public static let north = InnerShadowDirection(rawValue: 1 << 0)
     public static let east = InnerShadowDirection(rawValue: 1 << 1)
     public static let south = InnerShadowDirection(rawValue: 1 << 2)
@@ -20,7 +20,7 @@ public extension UIView {
             layer.cornerRadius = newValue
         }
     }
-    
+
     @IBInspectable var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -29,7 +29,7 @@ public extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
+
     @IBInspectable var borderColor: UIColor? {
         get {
             if let borderColor = layer.borderColor {
@@ -42,7 +42,7 @@ public extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
-    
+
     @IBInspectable var shadowColor: UIColor? {
         get {
             if let shadowColor = layer.shadowColor {
@@ -55,7 +55,7 @@ public extension UIView {
             layer.shadowColor = newValue?.cgColor
         }
     }
-    
+
     @IBInspectable var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
@@ -64,7 +64,7 @@ public extension UIView {
             layer.shadowOpacity = max(0, min(1, newValue)) // bound within [0, 1]
         }
     }
-    
+
     @IBInspectable var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
@@ -73,7 +73,7 @@ public extension UIView {
             layer.shadowOffset = newValue
         }
     }
-    
+
     @IBInspectable var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
@@ -82,7 +82,7 @@ public extension UIView {
             layer.shadowRadius = newValue
         }
     }
-    
+
     @IBInspectable var masksToBounds: Bool {
         get {
             return layer.masksToBounds
@@ -91,15 +91,15 @@ public extension UIView {
             layer.masksToBounds = newValue
         }
     }
-    
-    private static let innerShadowViewTag = 4663774
-    
+
+    private static let innerShadowViewTag = 4_663_774
+
     func removeInnerShadow() {
         subviews.filter { $0.tag == UIView.innerShadowViewTag }
             .first?
             .removeFromSuperview()
     }
-    
+
     func addInnerShadow(radius: CGFloat,
                         color: UIColor,
                         fade: Bool = true,
@@ -110,7 +110,7 @@ public extension UIView {
                                     fade: fade,
                                     directions: directions))
     }
-    
+
     private func createShadowView(radius: CGFloat,
                                   color: UIColor,
                                   fade: Bool,
@@ -118,10 +118,10 @@ public extension UIView {
         let shadowView = PassThroughView(frame: bounds)
         shadowView.backgroundColor = UIColor.clear
         shadowView.tag = UIView.innerShadowViewTag
-        
+
         var shadow: CAGradientLayer
         let colors = [color.cgColor, fade ? UIColor.clear.cgColor : color.cgColor]
-        
+
         if directions.contains(.north) {
             shadow = CAGradientLayer()
             shadow.colors = colors
@@ -130,7 +130,7 @@ public extension UIView {
             shadow.frame = CGRect(x: 0, y: 0, width: bounds.size.width, height: radius)
             shadowView.layer.addSublayer(shadow)
         }
-        
+
         if directions.contains(.east) {
             shadow = CAGradientLayer()
             shadow.colors = colors
@@ -139,7 +139,7 @@ public extension UIView {
             shadow.frame = CGRect(x: bounds.size.width - radius, y: 0, width: radius, height: bounds.size.height)
             shadowView.layer.addSublayer(shadow)
         }
-        
+
         if directions.contains(.south) {
             shadow = CAGradientLayer()
             shadow.colors = colors
@@ -148,7 +148,7 @@ public extension UIView {
             shadow.frame = CGRect(x: 0, y: bounds.size.height - radius, width: bounds.size.width, height: radius)
             shadowView.layer.addSublayer(shadow)
         }
-        
+
         if directions.contains(.west) {
             shadow = CAGradientLayer()
             shadow.colors = colors
@@ -157,10 +157,10 @@ public extension UIView {
             shadow.frame = CGRect(x: 0, y: 0, width: radius, height: bounds.size.height)
             shadowView.layer.addSublayer(shadow)
         }
-        
+
         return shadowView
     }
-    
+
     var isShown: Bool {
         get {
             return !isHidden
@@ -169,11 +169,11 @@ public extension UIView {
             isHidden = !newValue
         }
     }
-    
+
     func loadViewFromNib() -> UIView? {
         return loadViewFromNib(type: type(of: self))
     }
-    
+
     func loadViewFromNib(type: AnyClass) -> UIView? {
         let nib = UINib(nibName: String(describing: type), bundle: Bundle(for: type))
         let view = nib.instantiate(withOwner: self, options: nil).first as? UIView
