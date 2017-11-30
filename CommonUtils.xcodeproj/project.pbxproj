@@ -17,7 +17,6 @@
 		F68CABC11F34BAE7006CD223 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABA81F34BAE7006CD223 /* OrderedDictionary.swift */; };
 		F68CABC21F34BAE7006CD223 /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABA91F34BAE7006CD223 /* PassThroughView.swift */; };
 		F68CABC51F34BAE7006CD223 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABAC1F34BAE7006CD223 /* StringExtensions.swift */; };
-		F68CABC61F34BAE7006CD223 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABAD1F34BAE7006CD223 /* Style.swift */; };
 		F68CABC71F34BAE7006CD223 /* UICollectionReusableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABAE1F34BAE7006CD223 /* UICollectionReusableViewExtensions.swift */; };
 		F68CABC81F34BAE7006CD223 /* UICollectionViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABAF1F34BAE7006CD223 /* UICollectionViewCellExtensions.swift */; };
 		F68CABC91F34BAE7006CD223 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68CABB01F34BAE7006CD223 /* UICollectionViewExtensions.swift */; };
@@ -51,7 +50,6 @@
 		F68CABA81F34BAE7006CD223 /* OrderedDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 		F68CABA91F34BAE7006CD223 /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		F68CABAC1F34BAE7006CD223 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		F68CABAD1F34BAE7006CD223 /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		F68CABAE1F34BAE7006CD223 /* UICollectionReusableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionReusableViewExtensions.swift; sourceTree = "<group>"; };
 		F68CABAF1F34BAE7006CD223 /* UICollectionViewCellExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtensions.swift; sourceTree = "<group>"; };
 		F68CABB01F34BAE7006CD223 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				F68CABA91F34BAE7006CD223 /* PassThroughView.swift */,
 				F6808F851F4FB31A009527D4 /* RawRepresentableExtensions.swift */,
 				F68CABAC1F34BAE7006CD223 /* StringExtensions.swift */,
-				F68CABAD1F34BAE7006CD223 /* Style.swift */,
 				F68CABD81F34C12B006CD223 /* TableViewSectionFooter.swift */,
 				F68CABD91F34C12B006CD223 /* TableViewSectionHeader.swift */,
 				F6D00C161F38BA4F00480FCC /* TwoWayDictionary.swift */,
@@ -184,7 +181,7 @@
 		F68CAB8D1F34BA67006CD223 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Isaac Charny";
 				TargetAttributes = {
 					F68CAB951F34BA67006CD223 = {
@@ -235,7 +232,6 @@
 				F68CABC01F34BAE7006CD223 /* OptionalExtensions.swift in Sources */,
 				F68CABC21F34BAE7006CD223 /* PassThroughView.swift in Sources */,
 				F68CABD21F34BAE7006CD223 /* UIViewStyle.swift in Sources */,
-				F68CABC61F34BAE7006CD223 /* Style.swift in Sources */,
 				F68CABCB1F34BAE7006CD223 /* UIDeviceExtensions.swift in Sources */,
 				F68CABD11F34BAE7006CD223 /* UIViewExtensions.swift in Sources */,
 				F68CABCA1F34BAE7006CD223 /* UIColorExtensions.swift in Sources */,
@@ -268,7 +264,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -276,7 +274,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -322,7 +324,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -330,7 +334,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
