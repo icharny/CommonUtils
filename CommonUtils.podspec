@@ -22,6 +22,6 @@ This is a collection of utilities and extensions that make developing iOS/Swift 
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'CommonUtils/**/*.swift'
+  s.source_files = 'CommonUtils/*.swift'
   s.frameworks = 'UIKit'
 end
