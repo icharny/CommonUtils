@@ -142,6 +142,14 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     public mutating func sortKeys(by: (Tk, Tk) -> Bool) {
         keys.sort(by: by)
     }
+
+    public mutating func insert(key: Tk, value: Tv, at: Int) {
+        keys.index(of: key).then {
+            keys.remove(at: $0)
+        }
+        keys.insert(key, at: at)
+        values[key] = value
+    }
 }
 
 public struct OrderedDictionaryGenerator<Tv>: IteratorProtocol {
