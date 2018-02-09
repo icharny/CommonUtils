@@ -7,11 +7,3 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//! Project version number for CommonUtils.
-FOUNDATION_EXPORT double CommonUtilsVersionNumber;
-
-//! Project version string for CommonUtils.
-FOUNDATION_EXPORT const unsigned char CommonUtilsVersionString[];
-
-

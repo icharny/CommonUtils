@@ -3,6 +3,15 @@
 /// An abstraction if `UIView` styling.
 public struct UIViewStyle<T: UIView> {
 
+    /// Explicit constructor that takes in a styling function
+    ///
+    /// - Parameter styling: A styling function that takes a `UIView`
+    ///                      instance and performs side-effects on it.
+    /// - Returns: A new `UIViewStyle`
+    public init(styling: @escaping (T) -> Void) {
+        self.styling = styling
+    }
+
     /// The styling function that takes a `UIView` instance
     /// and performs side-effects on it.
     public let styling: (T) -> Void
