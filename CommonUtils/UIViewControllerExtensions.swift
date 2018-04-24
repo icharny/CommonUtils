@@ -1,9 +1,13 @@
-public extension UIViewController {
-    class func instance() -> Self {
+public protocol Intantiatable {}
+
+extension UIViewController: Intantiatable {}
+
+public extension Intantiatable where Self: UIViewController {
+    public static func instance() -> Self {
         return instance(name: String(describing: self))
     }
 
-    class func instance(name: String) -> Self {
+    public static func instance(name: String) -> Self {
         let nameStrippedOfGenerics = name.components(separatedBy: "<").first!
         let nameAppendingDevice = "\(name)~\(UIDevice.isIpad() ? "ipad" : "iphone")"
 
@@ -17,7 +21,21 @@ public extension UIViewController {
         return storyboard.initialViewController()
     }
 
-    var topViewController: UIViewController? {
+    public static func instance(_ setup: ((Self) -> Void)) -> Self {
+        let newInstance = instance()
+        setup(newInstance)
+        return newInstance
+    }
+
+    public static func instance(name: String, _ setup: ((Self) -> Void)) -> Self {
+        let newInstance = instance(name: name)
+        setup(newInstance)
+        return newInstance
+    }
+}
+
+public extension UIViewController {
+    public var topViewController: UIViewController? {
         if let tbc = self as? UITabBarController {
             return tbc.selectedViewController?.topViewController
         } else if let nc = self as? UINavigationController {
