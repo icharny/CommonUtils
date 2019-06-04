@@ -28,4 +28,14 @@ public struct DateFormatter {
             return ""
         }
     }
+    
+    public func date(fromString dateString: String?, format: String, locale: Locale) -> Date? {
+        dateFormatter.locale = locale
+        return date(fromString: dateString, format: format)
+    }
+    
+    public func string(fromDate date: Date?, format: String, locale: Locale) -> String? {
+        dateFormatter.locale = locale
+        return string(fromDate: date, format: format)
+    }
 }
