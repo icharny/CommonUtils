@@ -12,7 +12,7 @@ public extension String {
     func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
 
-        let boundingBox = (self as NSString).boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = (self as NSString).boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox.height
     }
 
@@ -95,7 +95,7 @@ public extension String {
     func preferredWidth(forFont font: UIFont) -> CGFloat {
         return (self as NSString).boundingRect(with: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude),
                                                options: .usesLineFragmentOrigin,
-                                               attributes: [NSAttributedStringKey.font: font],
+                                               attributes: [NSAttributedString.Key.font: font],
                                                context: nil)
             .width
     }

@@ -25,7 +25,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
         let arr = values.filter { $1 == value }
 
         if let firstPair = arr.first,
-            let index = keys.index(of: firstPair.key) {
+            let index = keys.firstIndex(of: firstPair.key) {
             return index
         } else {
             return -1
@@ -144,7 +144,7 @@ public struct OrderedDictionary<Tk: Hashable, Tv: Hashable>: Sequence, Expressib
     }
 
     public mutating func insert(key: Tk, value: Tv, at: Int) {
-        keys.index(of: key).then {
+        keys.firstIndex(of: key).then {
             keys.remove(at: $0)
         }
         keys.insert(key, at: at)
