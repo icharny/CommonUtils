@@ -8,7 +8,7 @@ public extension UITableView {
         return dequeueReusableCell(withIdentifier: T.cellId, for: indexPath) as! T
     }
 
-    func reloadVisible(_ animation: UITableViewRowAnimation = .none) {
+    func reloadVisible(_ animation: UITableView.RowAnimation = .none) {
         DispatchQueue.main.async {
             self.indexPathsForVisibleRows.then { self.reloadRows(at: $0, with: animation) }
         }
